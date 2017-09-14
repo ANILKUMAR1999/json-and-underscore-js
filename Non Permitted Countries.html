@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Two JSON Values Compare</title>
+</head>
+
+<body>
+    <h2>Two JSON Array Values Compare</h2>
+    <p id="demo"></p>
+    <script>
+    'use strict'
+    var country = {
+        "countries": [
+            "US",
+            "India",
+            "China",
+            "Japan"
+        ]
+    }
+
+
+    var perCountries = {
+        "permittedCountries": [
+            "US",
+            "India"
+        ]
+    }
+
+    var countries = country.countries;
+    var perCountries = perCountries.permittedCountries;
+    function differenceName(name) {
+        return perCountries.indexOf(name) === -1
+    }
+
+    const result_N = countries.filter(differenceName)
+    document.getElementById('demo').innerHTML = JSON.stringify(result_N);
+
+
+    // }
+    </script>
+</body>
