@@ -1,30 +1,36 @@
 'use strict';
 ( function() {
-
-		const inputsElem = document.querySelector('#inputs1');
-    const inputsElem2 = document.querySelector('#inputs2');
+	  const inputsElem = document.querySelector('#inputs');
     const outPutElem1 = document.querySelector('#u-js');
     const outPutElem2 = document.querySelector('#n-js');
 
 
-    function stringify(data) {
-        try {
-            data = JSON.stringify(data);
-        } catch (e) {
-            console.error(e);
-        }
-
-        return data;
+  function stringify(data) {
+    try {
+        data = JSON.stringify(data);
+    } catch(e){
+         console.log(e)
     }
+    return data;
+   }
 
-    const subMarks = { telugu: 60, english: 45, math: 70 };
-    inputsElem.innerText = stringify(subMarks);
+// Input Persons Age
+const numbers = [5, 8, 4, 18, 20];
+inputsElem.innerText = stringify(numbers);
 
-    // Using UnderScore Pick Method
-    const result_U = _.omit(subMarks,'english');
-    outPutElem1.innerText = stringify(result_U);
-    
-  // Using JavaScript Delete Method
-    delete subMarks.english
-    outPutElem2.innerText = stringify(subMarks);
+function checkAdult(age) {
+	return age >= 18;
+}
+
+// Using UnderScore JS reject Method
+const result_U = _.reject(numbers, checkAdult);
+outPutElem1.innerText = stringify(result_U);
+
+function checkAdul(age,index) {
+	return ((age >= 18) -1);
+}
+
+// Using JavaScript Filter Method
+const result_N = stringify(numbers.filter(checkAdul));
+outPutElem2.innerText = result_N;
 } ());
