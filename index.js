@@ -1,32 +1,40 @@
-'use sttict';
+'use strict';
 ( function() {
-	const inputsElem = document.querySelector('#inputs');
+    const inputsElem = document.querySelector('#inputs1');
+    const inputsElem2 = document.querySelector('#inputs2');
     const outPutElem1 = document.querySelector('#u-js');
     const outPutElem2 = document.querySelector('#n-js');
 
 
+    function stringify(data) {
+        try {
+            data = JSON.stringify(data);
+        } catch (e) {
+            console.error(e);
+        }
 
-	const employees = ['anil', 'ravi', 'raju', 'magesh', 'ramesh'];
-	const name = 'magesh';
-   
-   function stringify(data) {
-   	try {
-   		data = JSON.stringify(data);
-   	} catch(e){
-         console.log(e)
-   	}
-   	return data;
-   }
-   
-	inputsElem.innerText = stringify(employees);
+        return data;
+    }
+    
+    const teluguMarks = { telugu: 60 }; 
+    const englishMarks = {english: 45 };
+    inputsElem.innerText = stringify(teluguMarks);
+    inputsElem2.innerText = stringify(englishMarks)
 
-	// Using UnderScore JS Contains Method
 
-	const result_U = _.contains(employees, name);
-	outPutElem1.innerText =  stringify(result_U);
+    // Using UnderScore Extend Method
+    const result_U = _.extend(teluguMarks,englishMarks);
+    outPutElem1.innerText = stringify(result_U);
 
-	// Using JavaScript filter And Indexof Method
 
-	const result_N = (employees.indexOf(name) != -1);
-	outPutElem2.innerText = stringify(result_N);
-} ());
+    // Using JavaScript ForEach Method
+    const result_N = extend(teluguMarks, englishMarks)
+
+       function extend(obj, src) {
+       Object.keys(src).forEach( function (key){
+       	obj[key] = src[key];
+       });
+       return obj;
+       }
+       outPutElem2.innerText = stringify(result_N);
+} ())
