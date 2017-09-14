@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>State Wise Employees</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+</head>
+<body>
+<h2>State Wise Employees</h2>
+<p id="demo"> JavaScript Using Print In State Wise Employeees</p>
+<p id="under">Underscore Using Print In State Wise Employeees</p>
+<script>
+'use strict'
+var employee = {
+    "permittedCountries": [
+        {
+            "employeeId": "1",
+            "employeeAddress": {
+                "city": "Bangalore",
+                "state": "Karnataka"
+            }
+        },
+        {
+            "employeeId": "2",
+            "employeeAddress": {
+                "city": "Chennai",
+                "state": "TamilNadu"
+            }
+        },
+        {
+            "employeeId": "4",
+            "employeeAddress": {
+                "city": "Bangalore",
+                "state": "Karnataka"
+            }
+        },
+        {
+            "employeeId": "5",
+            "employeeAddress": {
+                "city": "Chennai",
+                "state": "TamilNadu"
+            }
+        }
+    ]
+};
+// Javacript Using State Wise Employees Print In dec_Oreder
+let countries = employee.permittedCountries;
+  countries.sort( function (a,b) {
+    var s1 = a.employeeAddress.state;
+    var s2 = b.employeeAddress.state;
+    if (s1 === s2) {
+        return 0
+    }
+    if (s1 < s2 ){
+        return 1
+    }
+    if (s1 > s2) {
+        return -1
+    }
+  })
+document.getElementById('under').innerHTML = JSON.stringify(countries);
+
+</script>
+
+</body>
+</html>
